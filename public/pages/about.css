@@ -1,0 +1,648 @@
+/* about.css */
+
+/* Hero Section */
+.about-hero {
+    background: var(--background-color);
+    padding: 120px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.about-hero h1 {
+    font-size: 3.5rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.about-hero p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Mission Section */
+.mission-section {
+    padding: 80px 0;
+    background: var(--background-light);
+}
+
+.mission-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mission-content .icon-container {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px auto;
+    background: var(--primary-color-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mission-content .icon-container svg {
+    width: 30px;
+    height: 30px;
+    color: var(--primary-color);
+}
+
+.mission-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.mission-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* Unique Features Section */
+.unique-section {
+    padding: 80px 0;
+}
+
+.unique-section .section-header p {
+    max-width: 700px;
+    margin: 15px auto 0 auto;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.unique-features-list {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.feature-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    background: var(--medium-blue);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.feature-icon svg {
+    width: 45px;
+    height: 45px;
+    color: var(--primary-color);
+}
+
+.feature-content h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.feature-content p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Game Section */
+.game-section {
+    padding: 80px 0;
+    background: var(--background-light);
+    text-align: center;
+}
+
+.game-container {
+    background-color: var(--dark-blue);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.game-hole {
+    width: 100%;
+    padding-top: 100%; /* Creates a square aspect ratio */
+    background-color: var(--medium-blue);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+}
+
+.task {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--primary-gradient);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: top 0.2s ease-in-out;
+    user-select: none;
+}
+
+.task.up {
+    top: 0;
+}
+
+.task-icon {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.task-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.game-controls {
+    width: 100%;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+}
+
+.stat span:first-child {
+    color: var(--text-secondary);
+    display: block;
+    font-size: 1rem;
+}
+
+.stat span:last-child {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.game-end-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 17, 40, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+    z-index: 10;
+}
+
+.game-end-message h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.game-end-message p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game-end-message.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#automate-btn {
+    font-size: 1.1rem;
+}
+
+/* New Team Section (Strengths) */
+.team-section {
+    padding: 80px 0;
+    /* No background, will inherit from body */
+}
+
+.team-strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.strength-card {
+    background: var(--medium-blue);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.strength-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.strength-card .icon-container {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px auto;
+    background-image: var(--primary-gradient);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.strength-card .icon-container svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+/* Management Section (formerly Team Section) */
+.management-section {
+    padding: 80px 0;
+    background: var(--background-light);
+}
+
+.management-grid {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.management-card {
+    text-align: center;
+    max-width: 450px;
+}
+
+.management-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 25px auto;
+    border: 5px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--medium-blue);
+}
+
+.management-card:hover .management-photo {
+    transform: scale(1.05);
+}
+
+.management-photo svg {
+    width: 90px;
+    height: 90px;
+    color: var(--primary-color);
+    stroke-width: 1;
+}
+
+.management-info h3 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.management-info .title {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.management-info .bio {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.social-links svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .feature-item,
+    .feature-item:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .feature-content h3 {
+        font-size: 1.6rem;
+    }
+
+}
+
+/* Responsive for game */
+@media (max-width: 500px) {
+    .game-board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .task-icon {
+        font-size: 1.5rem;
+    }
+    .task-name {
+        font-size: 0.7rem;
+    }
+}
+
+/* --- New Animated Feature Icons --- */
+
+/* 1. Strategy Blueprint */
+.strategy-blueprint .blueprint-lines {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    transition: stroke-dashoffset 1s ease-out;
+}
+.strategy-blueprint .compass-point {
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+    transform-origin: center;
+}
+.feature-item:hover .strategy-blueprint .blueprint-lines {
+    stroke-dashoffset: 0;
+}
+.feature-item:hover .strategy-blueprint .compass-point {
+    transform: scale(1);
+}
+
+/* 2. Partnership Puzzle */
+.partnership-puzzle .puzzle-piece-moving {
+    /* Start further away for a more noticeable animation */
+    transform: translate(10px, -10px) rotate(15deg);
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.feature-item:hover .partnership-puzzle .puzzle-piece-moving {
+    transform: translate(0, 0) rotate(0deg);
+}
+
+.feature-item:hover .partnership-puzzle {
+    /* Add a 'connection' pulse effect after the piece moves into place */
+    animation: puzzle-connect-pulse 0.8s ease-out 0.4s;
+}
+
+@keyframes puzzle-connect-pulse {
+    0%, 100% { filter: none; }
+    50% { filter: drop-shadow(0 0 8px var(--primary-color)); }
+}
+
+/* 3. Human-centric Smile */
+.human-centric-smile .mouth-neutral, .human-centric-smile .mouth-smile {
+    transition: opacity 0.4s ease-in-out;
+}
+.human-centric-smile .mouth-smile {
+    opacity: 0;
+    stroke: var(--primary-color);
+    stroke-width: 2;
+}
+.feature-item:hover .human-centric-smile .mouth-neutral {
+    opacity: 0;
+}
+.feature-item:hover .human-centric-smile .mouth-smile {
+    opacity: 1;
+}
+
+/* 4. Proven Business Value Graph */
+.value-graph .graph-line {
+    stroke: var(--primary-color);
+    stroke-width: 2.5;
+    stroke-dasharray: 35;
+    stroke-dashoffset: 35;
+    transition: stroke-dashoffset 1s cubic-bezier(0.45, 0, 0.55, 1);
+}
+.feature-item:hover .value-graph .graph-line {
+    stroke-dashoffset: 0;
+}
+
+/* --- Team Strengths Icons Animations --- */
+
+/* 1. Strategy Compass */
+.strategy-compass .compass-needle {
+    transform-origin: center;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.strength-card:hover .strategy-compass .compass-needle {
+    transform: rotate(360deg);
+}
+/* Removed the color change on the circle to avoid sudden color shifts */
+.strategy-compass .compass-circle {
+    transition: transform 0.4s ease;
+}
+.strength-card:hover .strategy-compass .compass-circle {
+    transform: scale(1.05);
+    transform-origin: center;
+}
+
+/* 2. Detail Lightning */
+.strength-card:hover .detail-lightning {
+    animation: lightning-crackle 0.8s ease-in-out;
+    /* Changed glow to white for a more natural effect */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+    transform: scale(1.05);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+@keyframes lightning-crackle {
+    0% { transform: scale(1.05) skewX(0); }
+    25% { transform: scale(1.05) skewX(-5deg) skewY(5deg); }
+    50% { transform: scale(1.05) skewX(5deg) skewY(-5deg); }
+    75% { transform: scale(1.05) skewX(-3deg) skewY(3deg); }
+    100% { transform: scale(1.05) skewX(0); }
+}
+
+/* 3. Commitment Success */
+.commitment-success .success-check {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    stroke-width: 2; /* Set a base width */
+    /* Removed stroke color from transition to prevent color change */
+    transition: stroke-dashoffset 0.5s ease-in-out, stroke-width 0.4s ease;
+}
+.strength-card:hover .commitment-success .success-check {
+    stroke-dashoffset: 0;
+    stroke-width: 2.5;
+}
+/* Added a subtle lift to the user icon for more interactivity */
+.commitment-success .user-path {
+    transition: transform 0.4s ease-out;
+}
+.strength-card:hover .commitment-success .user-path {
+    transform: translateY(-1px);
+}
+
+.phone-group {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 8px;
+    padding: 0;
+    background-color: var(--dark-blue);
+    transition: border-color .2s ease, box-shadow .2s ease;
+    overflow: hidden; 
+}
+.phone-group:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
+}
+.phone-group select {
+    flex-shrink: 0;
+    flex-basis: 120px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0 10px 0 15px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-color);
+    border-right: 1px solid var(--border-color, #ddd);
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.phone-group input[type="tel"] {
+    border: none;
+    outline: none;
+    border-radius: 0;
+    box-shadow: none;
+    flex: 1;
+    min-width: 0;
+    padding: 15px;
+    background-color: transparent;
+}
+#contact-form .form-grid {
+    grid-template-columns: 1fr;
+}
+
+/* --- Loader Styles for Submit Button --- */
+.btn-submit {
+    position: relative;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 54px; /* Prevents button from changing size */
+}
+
+.btn-submit .btn-text {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.btn-submit.loading .btn-text {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.btn-submit .loader-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.btn-submit.loading .loader-wrapper {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ai-loader {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    animation: ai-loader-rotate 2.5s linear infinite;
+}
+
+.ai-loader-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: ai-loader-orbit 2.5s ease-in-out infinite;
+}
+
+.ai-loader-dot:nth-child(1) { top: 0; left: 0; }
+.ai-loader-dot:nth-child(2) { top: 0; right: 0; animation-delay: 0.625s; }
+.ai-loader-dot:nth-child(3) { bottom: 0; right: 0; animation-delay: 1.25s; }
+.ai-loader-dot:nth-child(4) { bottom: 0; left: 0; animation-delay: 1.875s; }
+
+@keyframes ai-loader-rotate { 100% { transform: rotate(360deg); } }
+@keyframes ai-loader-orbit {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.4); opacity: 0.6; }
+}
